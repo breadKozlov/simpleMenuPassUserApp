@@ -51,9 +51,9 @@
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.2</version>
-          <!-->   <configuration>
-                      <outputDirectory>c:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\</outputDirectory>
-                  </configuration> <-->
+          <configuration>
+            <outputDirectory>/home/pahadaha/tomcat/webapps/</outputDirectory>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
