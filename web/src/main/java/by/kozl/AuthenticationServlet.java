@@ -33,6 +33,7 @@ public class AuthenticationServlet extends HttpServlet {
             req.setAttribute("name",name);
             req.setAttribute("age",age);
             req.setAttribute("email",email);
+            req.setAttribute("login",login);
         } else {
             path = "/error.jsp";
             String message = "No user with this name. Please try again or register in the system";

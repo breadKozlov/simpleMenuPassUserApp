@@ -10,5 +10,6 @@
         <p>Email: <%= request.getParameter("email") %></p>
         <p>Login: <%= request.getParameter("login") %></p>
         <p>Password: <%= request.getParameter("password") %></p>
+        <p><a href="./menu.jsp">Go to menu</a></p>
     </body>
 </html>
