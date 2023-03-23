@@ -39,8 +39,8 @@ public class CreateProductDB {
 
     private void createDB() throws IOException {
 
-        products.add(new Product(1,"Pasha","Kozlov"));
-        products.add(new Product(2,"Dasha","Urublevskaja"));
+        products.add(new Product(1,"Apple","Iphone"));
+        products.add(new Product(2,"Apple","Imac"));
         this.saveDB(products);
     }
 

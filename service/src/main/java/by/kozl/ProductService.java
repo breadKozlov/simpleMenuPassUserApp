@@ -7,14 +7,14 @@ import java.util.*;
 
 public class ProductService {
 
-    private final ProductDao userDao = new ProductDao();
+    private final ProductDao productDao = new ProductDao();
     public Optional<ProductDto> getProduct(int id) {
-        return userDao.findById(id).map(it -> new ProductDto(it.getName(),it.getDescription()));
+        return productDao.findById(id).map(it -> new ProductDto(it.getName(),it.getDescription()));
     }
 
-    public List<Optional<ProductDto>> getAllUsers() {
+    public List<Optional<ProductDto>> getAllProducts() {
 
-        List<Optional<Product>> listProducts = userDao.getAllUsers();
+        List<Optional<Product>> listProducts = productDao.getAllUsers();
         List<Optional<ProductDto>> listProductsDto = new ArrayList<>();
 
         for(Optional<Product> product: listProducts) {
@@ -24,14 +24,14 @@ public class ProductService {
         return listProductsDto;
     }
 
-    public boolean deleteUser(int id) {
-        return userDao.deleteUser(id);
+    public boolean deleteProduct(int id) {
+        return productDao.deleteProduct(id);
     }
 
-    public void addUser(ProductDto productDto) {
-        userDao.createUser(new Product(productDto.getName(),productDto.getDescription()));
+    public void addProduct(ProductDto productDto) {
+        productDao.createProduct(new Product(productDto.getName(),productDto.getDescription()));
     }
-    public void renameUser(int id, ProductDto productDto) {
-        userDao.renameUser(id,new Product(productDto.getName(),productDto.getDescription()));
+    public void renameProduct(int id, ProductDto productDto) {
+        productDao.renameProduct(id,new Product(productDto.getName(),productDto.getDescription()));
     }
 }

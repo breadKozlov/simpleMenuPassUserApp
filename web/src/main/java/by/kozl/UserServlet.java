@@ -34,7 +34,7 @@ public class UserServlet extends HttpServlet {
         printWriter.println("<p>Login: " + user.orElseThrow().getLogin() + " </p>");
         printWriter.println("<p>Password: " + user.orElseThrow().getPassword() + " </p>");
         printWriter.println("<p><a href=\"./change?login=" + user.orElseThrow().getLogin() + "\">Change your data</a></p>");
-        printWriter.println("<p><a href=\"./menu.jsp\">Return to menu page</a></p>");
+        printWriter.println("<p><a href=\"./authentication?login=" + user.orElseThrow().getLogin() + "\">Return to menu page</a></p>");
         printWriter.println("</body></html>");
         printWriter.close();
     }

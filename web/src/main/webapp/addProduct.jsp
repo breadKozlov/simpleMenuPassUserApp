@@ -5,12 +5,14 @@
 <title>User Form</title>
 </head>
 <body>
-<form action="addProduct">
-    Name: <input name="name" />
-    <br><br>
-    Description: <input name="description" />
-    <br><br>
-    <input type="submit" value="Submit" />
-</form>
+    <h2>Current user: ${login}</h2>
+       <form action="addProduct">
+       <input type="hidden" name="login" value= <%= request.getParameter("login") %>>
+       Name: <input name="name" required/>
+       <br><br>
+       Description: <input name="description" required/>
+       <br><br>
+      <input type="submit" value="Submit" />
+      </form>
 </body>
 </html>

@@ -6,7 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -26,16 +25,15 @@ public class AddProductServlet extends HttpServlet {
 
         String name = request.getParameter("name");
         String description = request.getParameter("description");
-
+        String login = request.getParameter("login");
         ProductDto productDto = new ProductDto(name,description);
-        productService.addUser(productDto);
+        productService.addProduct(productDto);
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println("<html><body>");
         writer.println("<h2>Product: " + name + " added</h2>");
-        writer.println("<p><a href=\"./menu.jsp\">Return to the menu page</a></p>");
+        writer.println("<p><a href=\"./authentication?login=" + login + "\">Return to the menu page</a></p>");
         writer.println("</body></html>");
         writer.close();
     }
-
 }

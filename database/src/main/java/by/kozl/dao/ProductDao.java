@@ -1,5 +1,6 @@
 package by.kozl.dao;
 
+import by.kozl.comparators.ProductComparator;
 import by.kozl.createDB.CreateProductDB;
 import by.kozl.entity.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -12,10 +13,10 @@ import java.util.*;
 public class ProductDao {
 
     private List<Product> products;
-    private static final Map<Integer,Product> dataBase = new HashMap<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private static final String path = CreateProductDB.PATH_TO_DB;
     private static final String file = CreateProductDB.NAME_OF_DB;
+    private final ProductComparator productComparator = new ProductComparator();
 
     public ProductDao() {
         try {
@@ -49,7 +50,7 @@ public class ProductDao {
         return optionals;
     }
 
-    public void createUser(Product product){
+    public void createProduct(Product product){
 
         products = this.readOnDB();
         int id = 1;
@@ -66,7 +67,7 @@ public class ProductDao {
         this.refreshDB(products);
     }
 
-    public boolean deleteUser(int id) {
+    public boolean deleteProduct(int id) {
         boolean isDelete = false;
         products = this.readOnDB();
         for (Product product: products) {
@@ -80,12 +81,12 @@ public class ProductDao {
         return isDelete;
     }
 
-    public void renameUser(int id,Product product) {
+    public void renameProduct(int id,Product product) {
         products = this.readOnDB();
         for (Product product1: products) {
             if (product1.getId() == id) {
-                product1 = product;
-                product1.setId(id);
+                product.setId(id);
+                products.set(products.indexOf(product1),product);
                 break;
             }
         }
@@ -105,6 +106,7 @@ public class ProductDao {
     private List<Product> readOnDB() {
         try{
             products = objectMapper.readValue(new File(path + "/" + file),new TypeReference<>(){});
+            products.sort(productComparator);
             System.out.println("Read");
         } catch (Exception ex) {
             ex.printStackTrace();

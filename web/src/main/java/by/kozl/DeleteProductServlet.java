@@ -6,7 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -24,16 +23,18 @@ public class DeleteProductServlet extends HttpServlet {
             throws IOException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        if (productService.deleteUser(id)) {
+        String login = request.getParameter("login");
+        if (productService.deleteProduct(id)) {
             response.setContentType("text/html");
             PrintWriter writer = response.getWriter();
             writer.println("<html><body>");
-            writer.println("<h2>User with id: \"" + id + "\" deleted</h2>");
-            writer.println("<p><a href=\"./menu.jsp\">Return to the menu page</a></p>");
+            writer.println("<h2>Product with id: \"" + id + "\" deleted</h2>");
+            writer.println("<p><a href=\"./authentication?login=" + login + "\">Return to the menu page</a></p>");
             writer.println("</body></html>");
             writer.close();
         } else {
             request.setAttribute("message", "Sorry incorrect id. Retry please");
+            request.setAttribute("login",login);
             getServletContext().getRequestDispatcher("/errorGetProduct.jsp").forward(request, response);
         }
     }
