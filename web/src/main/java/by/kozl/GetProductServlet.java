@@ -37,7 +37,7 @@ public class GetProductServlet extends HttpServlet {
             writer.close();
         } else {
             request.setAttribute("message", "This id doesn't exist in the database. Please retry enter.");
-            getServletContext().getRequestDispatcher("/errorGetUser.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/errorGetProduct.jsp").forward(request, response);
         }
     }
 }

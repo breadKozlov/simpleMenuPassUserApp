@@ -34,7 +34,7 @@ public class DeleteProductServlet extends HttpServlet {
             writer.close();
         } else {
             request.setAttribute("message", "Sorry incorrect id. Retry please");
-            getServletContext().getRequestDispatcher("/errorGetUser.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/errorGetProduct.jsp").forward(request, response);
         }
     }
 }

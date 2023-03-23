@@ -29,6 +29,11 @@ public class UserService {
 
     }
 
+    public boolean updateUser(UserDto userDto) {
+        return userDao.updateUser(new User(userDto.getName(),userDto.getAge(),
+                userDto.getEmail(),userDto.getLogin(),userDto.getPassword()));
+    }
+
     public boolean registerUser(UserDto userDto) {
         return userDao.registerUser(new User(userDto.getName(),userDto.getAge(),
                 userDto.getEmail(),userDto.getLogin(),userDto.getPassword()));

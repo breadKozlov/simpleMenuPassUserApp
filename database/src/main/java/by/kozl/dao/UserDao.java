@@ -47,6 +47,20 @@ public class UserDao {
         return Optional.of(resultUser);
     }
 
+    public boolean updateUser(User user) {
+        boolean result = false;
+        users = this.readOnDB();
+        for (User man: users) {
+            if (man.getLogin().equals(user.getLogin())) {
+                users.set(users.indexOf(man),user);
+                result = true;
+                break;
+            }
+        }
+        writeOnDB(users);
+        return result;
+    }
+
     public boolean registerUser(User user){
         boolean result = false;
         users = this.readOnDB();

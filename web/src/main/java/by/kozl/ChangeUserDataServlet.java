@@ -1,6 +1,5 @@
 package by.kozl;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,15 +7,24 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Optional;
 
-@WebServlet("/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet("/change")
+public class ChangeUserDataServlet extends HttpServlet {
 
     UserService userService = new UserService();
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String login = req.getParameter("login");
+        Optional<UserDto> user = userService.getUser(login);
+        req.setAttribute("name",user.orElseThrow().getName());
+        req.setAttribute("age",Integer.toString(user.orElseThrow().getAge()));
+        req.setAttribute("email",user.orElseThrow().getEmail());
+        req.setAttribute("login",login);
+        req.setAttribute("password",user.orElseThrow().getPassword());
+        req.getServletContext().getRequestDispatcher("/changeUserData.jsp").forward(req,resp);
     }
 
     @Override
@@ -31,16 +39,16 @@ public class RegistrationServlet extends HttpServlet {
         String path;
         String message;
 
-        if (userService.registerUser(userDto)) {
-            path = "/error.jsp";
-            message = "Registration failed. The user with the given\n" +
-                    "login already exists. Please change your login.";
-        } else {
+        if (userService.updateUser(userDto)) {
             path = "/success.jsp";
-            message = "Registration went successfully!";
-            req.setAttribute("login",login);
+            message = "Update went successfully!";
+
+        } else {
+            path = "/error.jsp";
+            message = "Update failed";
         }
 
+        req.setAttribute("login",login);
         req.setAttribute("message",message);
         getServletContext().getRequestDispatcher(path).forward(req,resp);
     }

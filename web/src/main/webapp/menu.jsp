@@ -11,5 +11,6 @@
           <p><a href="./addProduct.jsp">Add product</a></p>
           <p><a href="./products">Show all products</a></p>
           <p><a href="./user?login=${login}">Go to personal account</a></p>
+          <p><a href="./index.jsp">Return to the start page</a></p>
     </body>
 </html>
