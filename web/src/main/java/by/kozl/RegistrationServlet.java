@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
-    UserService userService = new UserService();
+    private static final UserServiceDB userServiceDB = UserServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
         String path;
         String message;
 
-        if (userService.registerUser(userDto)) {
+        if (userServiceDB.registerUser(userDto)) {
             path = "/error.jsp";
             message = "Registration failed. The user with the given\n" +
                     "login already exists. Please change your login.";

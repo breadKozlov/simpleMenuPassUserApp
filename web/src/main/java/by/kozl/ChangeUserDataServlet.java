@@ -12,13 +12,13 @@ import java.util.Optional;
 @WebServlet("/change")
 public class ChangeUserDataServlet extends HttpServlet {
 
-    UserService userService = new UserService();
+    private static final UserServiceDB userServiceDB = UserServiceDB.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String login = req.getParameter("login");
-        Optional<UserDto> user = userService.getUser(login);
+        Optional<UserDto> user = userServiceDB.getUser(login);
         req.setAttribute("name",user.orElseThrow().getName());
         req.setAttribute("age",Integer.toString(user.orElseThrow().getAge()));
         req.setAttribute("email",user.orElseThrow().getEmail());
@@ -39,7 +39,7 @@ public class ChangeUserDataServlet extends HttpServlet {
         String path;
         String message;
 
-        if (userService.updateUser(userDto)) {
+        if (userServiceDB.updateUser(userDto)) {
             path = "/success.jsp";
             message = "Update went successfully!";
 

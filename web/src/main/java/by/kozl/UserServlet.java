@@ -14,13 +14,13 @@ import java.util.Optional;
 @WebServlet("/user")
 public class UserServlet extends HttpServlet {
 
-    UserService userService = new UserService();
+    private static final UserServiceDB userServiceDB = UserServiceDB.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String log = req.getParameter("login");
-        Optional<UserDto> user = userService.getUser(log);
+        Optional<UserDto> user = userServiceDB.getUser(log);
         resp.setContentType("text/html");
         PrintWriter printWriter = resp.getWriter();
         printWriter.println("<!DOC TYPE html><html>");

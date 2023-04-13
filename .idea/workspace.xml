@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e209f61-d2bb-4c05-a7cf-d580fdb75814" name="Changes" comment="Workable web app user product password" />
+    <list default="true" id="8e209f61-d2bb-4c05-a7cf-d580fdb75814" name="Changes" comment="Workable web app user product password">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/UserDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/UserDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/main/java/by/kozl/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web.iml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../testRep" />
+    <property name="last_opened_file_path" value="$USER_HOME$/testRep" />
     <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -43,10 +51,23 @@
       <recent name="C:\Users\Павел\IdeaProjects\simpleMenuPassUserApp\simpleMenuPassUserApp\service\src\main\java\by\kozlov" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AuthenticationServlet">
+  <component name="RunManager" selected="Application.JDBCRunner">
     <configuration name="AuthenticationServlet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="by.kozl.AuthenticationServlet" />
       <module name="web" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.kozl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.kozl.JDBCRunner" />
+      <module name="database" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="by.kozl.*" />
@@ -72,6 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JDBCRunner" />
         <item itemvalue="Application.AuthenticationServlet" />
         <item itemvalue="Application.Runner" />
       </list>

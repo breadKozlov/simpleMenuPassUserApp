@@ -12,17 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class UserDaoDB implements Dao<Integer, User> {
+public class UserDaoDB implements Dao<String, User> {
 
     private static final UserDaoDB INSTANCE = new UserDaoDB();
 
     private static String FIND_ALL = """
-            SELECT id,name_of_user,age_user,email,login,password
+            SELECT name_of_user,age_user,email,login,password
             FROM users
             """;
 
     private static String FIND_BY_ID_SQL = FIND_ALL + """
-            WHERE id = ?
+            WHERE login = ?
             """;
 
     private static String SAVE_SQL = """
@@ -32,7 +32,7 @@ public class UserDaoDB implements Dao<Integer, User> {
 
     private static String DELETE_SQL = """
             DELETE FROM users
-            WHERE id = ?
+            WHERE login = ?
             """;
 
     private static String UPDATE_SQL = """
@@ -40,9 +40,8 @@ public class UserDaoDB implements Dao<Integer, User> {
             name_of_user = ?,
             age_user = ?,
             email = ?,
-            login = ?,
             password = ?
-            WHERE id = ?
+            WHERE login = ?
             """;
 
     @Override
@@ -52,9 +51,8 @@ public class UserDaoDB implements Dao<Integer, User> {
             statement.setString(1, user.getName());
             statement.setInt(2, user.getAge());
             statement.setString(3, user.getEmail());
-            statement.setString(4, user.getLogin());
-            statement.setString(5, user.getPassword());
-            statement.setLong(6, user.getId());
+            statement.setString(4, user.getPassword());
+            statement.setString(5, user.getLogin());
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -62,11 +60,11 @@ public class UserDaoDB implements Dao<Integer, User> {
     }
 
     @Override
-    public Optional<User> findById(Integer id) {
+    public Optional<User> findById(String login) {
         try (var connection = ConnectionManager.get();
              var statement = connection.prepareStatement(FIND_BY_ID_SQL)) {
             User user = null;
-            statement.setLong(1, id);
+            statement.setString(1, login);
             var result = statement.executeQuery();
             if (result.next())
                 user = buildUser(result);
@@ -92,10 +90,10 @@ public class UserDaoDB implements Dao<Integer, User> {
     }
 
     @Override
-    public boolean delete(Integer id) {
+    public boolean delete(String login) {
         try (var connection = ConnectionManager.get();
              var statement = connection.prepareStatement(DELETE_SQL)) {
-            statement.setLong(1, id);
+            statement.setString(1, login);
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -106,16 +104,13 @@ public class UserDaoDB implements Dao<Integer, User> {
     public User save(User user) {
         try (var connection = ConnectionManager.get();
              var statement = connection
-                     .prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
+                     .prepareStatement(SAVE_SQL)) {
             statement.setString(1, user.getName());
             statement.setInt(2, user.getAge());
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getLogin());
             statement.setString(5, user.getPassword());
             statement.executeUpdate();
-            var generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next())
-                user.setId(generatedKeys.getInt("id"));
             return user;
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -124,7 +119,6 @@ public class UserDaoDB implements Dao<Integer, User> {
 
     private User buildUser(ResultSet result) throws SQLException {
         return new User(
-                result.getInt("id"),
                 result.getString("name_of_user"),
                 result.getInt("age_user"),
                 result.getString("email"),

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @WebServlet("/authentication")
 public class AuthenticationServlet extends HttpServlet {
-    private static final UserService userService = new UserService();
+    private static final UserServiceDB userServiceDB = UserServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -31,7 +31,7 @@ public class AuthenticationServlet extends HttpServlet {
         String password = req.getParameter("password");
         String path = "/menu.jsp";
 
-        if (userService.checkPassword(login,password)) {
+        if (userServiceDB.checkPassword(login,password)) {
             req.setAttribute("login",login);
         } else {
             path = "/error.jsp";
