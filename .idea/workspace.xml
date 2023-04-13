@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e209f61-d2bb-4c05-a7cf-d580fdb75814" name="Changes" comment="Add dao and database" />
+    <list default="true" id="8e209f61-d2bb-4c05-a7cf-d580fdb75814" name="Changes" comment="Add dao and database">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/JDBCRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/comparators/ProductComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/createDB/CreateProductDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/createDB/CreateUserDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/ProductDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/ProductDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/ProductDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/UserDaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/main/java/by/kozl/dao/UserDaoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/utils/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/main/java/by/kozl/utils/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/by/kozl/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/by/kozl/dto/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/by/kozl/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/by/kozl/ProductServiceDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/by/kozl/service/ProductServiceDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/by/kozl/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/by/kozl/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/by/kozl/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/by/kozl/UserServiceDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/by/kozl/service/UserServiceDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/AddProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/AddProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/AllProductsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/AllProductsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/AuthenticationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/AuthenticationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/ChangeUserDataServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/ChangeUserDataServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/DeleteProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/DeleteProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/GetProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/GetProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/RenameProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/RenameProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/java/by/kozl/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/by/kozl/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,25 +61,24 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/testRep" />
-    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Павел\IdeaProjects\simpleMenuPassUserApp\simpleMenuPassUserApp\service\src\main\java\by\kozlov" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JDBCRunner">
+  <component name="RunManager" selected="Application.by.kozl.Runner">
     <configuration name="AuthenticationServlet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="by.kozl.AuthenticationServlet" />
       <module name="web" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.kozl.*" />
+          <option name="PATTERN" value="by.kozl.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -62,7 +91,7 @@
       <module name="database" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.kozl.*" />
+          <option name="PATTERN" value="by.kozl.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -75,6 +104,19 @@
       <module name="service" />
       <extension name="coverage">
         <pattern>
+          <option name="PATTERN" value="by.kozl.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="by.kozl.Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.kozl.Runner" />
+      <module name="database" />
+      <extension name="coverage">
+        <pattern>
           <option name="PATTERN" value="by.kozl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -85,6 +127,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.by.kozl.Runner" />
         <item itemvalue="Application.JDBCRunner" />
         <item itemvalue="Application.AuthenticationServlet" />
         <item itemvalue="Application.Runner" />
@@ -128,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681405568105</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add dao and database">
+      <created>1681405832404</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681405832404</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

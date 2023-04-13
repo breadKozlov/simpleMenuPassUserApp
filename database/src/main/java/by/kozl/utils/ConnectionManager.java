@@ -12,7 +12,7 @@ public final class ConnectionManager {
     private static final String PASSWORD_KEY = "db.password";
     private static final String URL_KEY = "db.url";
     private static final String POOL_SIZE_KEY = "db.pool.size";
-    private static final Integer DEFAULT_POOL_SIZE = 10;
+    private static final Integer DEFAULT_POOL_SIZE = 12;
 
     private static BlockingQueue<Connection> pool;
 
@@ -50,6 +50,8 @@ public final class ConnectionManager {
             throw new RuntimeException(ex);
         }
     }
+
+
 
     private ConnectionManager(){}
 

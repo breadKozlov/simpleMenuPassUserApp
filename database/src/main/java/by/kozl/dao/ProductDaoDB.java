@@ -17,31 +17,31 @@ public class ProductDaoDB implements Dao<Integer,Product>{
 
     private static String SAVE_SQL = """
             INSERT INTO products (name_of_product,description) 
-            VALUES (?, ?)
+            VALUES (?, ?);
             """;
 
     private static String DELETE_SQL = """
             DELETE FROM products
-            WHERE id = ?
+            WHERE id = ?;
             """;
 
     private static String FIND_ALL = """
             SELECT id,name_of_product,description       
             FROM products
-            ORDER BY id
+            ORDER BY id;
             """;
 
     private static String UPDATE_SQL = """
             UPDATE products SET
             name_of_product = ?,
             description = ?
-            WHERE id = ?
+            WHERE id = ?;
             """;
 
     private static String FIND_BY_ID = """
             SELECT id,name_of_product,description       
             FROM products
-            WHERE id = ?
+            WHERE id = ?;
             """;
 
     @Override

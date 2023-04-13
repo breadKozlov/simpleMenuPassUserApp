@@ -1,5 +1,7 @@
 package by.kozl;
 
+import by.kozl.dto.UserDto;
+import by.kozl.service.UserServiceDB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.OptionalDataException;
 import java.io.PrintWriter;
 import java.util.Optional;
 

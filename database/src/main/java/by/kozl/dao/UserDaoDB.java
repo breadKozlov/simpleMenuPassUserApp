@@ -18,21 +18,23 @@ public class UserDaoDB implements Dao<String, User> {
 
     private static String FIND_ALL = """
             SELECT name_of_user,age_user,email,login,password
-            FROM users
+            FROM users;
             """;
 
-    private static String FIND_BY_ID_SQL = FIND_ALL + """
-            WHERE login = ?
+    private static String FIND_BY_ID_SQL = """
+            SELECT name_of_user,age_user,email,login,password
+            FROM users
+            WHERE login = ?;
             """;
 
     private static String SAVE_SQL = """
             INSERT INTO users (name_of_user,age_user,email,login,password) 
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?);
             """;
 
     private static String DELETE_SQL = """
             DELETE FROM users
-            WHERE login = ?
+            WHERE login = ?;
             """;
 
     private static String UPDATE_SQL = """
@@ -41,7 +43,7 @@ public class UserDaoDB implements Dao<String, User> {
             age_user = ?,
             email = ?,
             password = ?
-            WHERE login = ?
+            WHERE login = ?;
             """;
 
     @Override

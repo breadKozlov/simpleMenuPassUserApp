@@ -1,4 +1,4 @@
-package by.kozl;
+package by.kozl.dto;
 
 import java.io.Serial;
 import java.io.Serializable;

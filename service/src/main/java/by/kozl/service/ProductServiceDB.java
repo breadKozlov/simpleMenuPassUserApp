@@ -1,6 +1,6 @@
-package by.kozl;
+package by.kozl.service;
 
-import by.kozl.dao.ProductDao;
+import by.kozl.dto.ProductDto;
 import by.kozl.dao.ProductDaoDB;
 import by.kozl.entity.Product;
 
@@ -11,8 +11,6 @@ import java.util.Optional;
 public class ProductServiceDB {
 
     private static final ProductServiceDB INSTANCE = new ProductServiceDB();
-
-    private final ProductDao productDao = new ProductDao();
     private static final ProductDaoDB productDaoDB = ProductDaoDB.getInstance();
 
     public Optional<ProductDto> getProduct(int id) {

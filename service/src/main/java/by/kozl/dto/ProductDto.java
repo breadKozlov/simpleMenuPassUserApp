@@ -1,4 +1,4 @@
-package by.kozl;
+package by.kozl.dto;
 
 public class ProductDto {
 

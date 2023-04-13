@@ -1,5 +1,7 @@
 package by.kozl;
 
+import by.kozl.dto.UserDto;
+import by.kozl.service.UserServiceDB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
