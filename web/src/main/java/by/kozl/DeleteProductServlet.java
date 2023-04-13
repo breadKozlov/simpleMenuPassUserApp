@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 @WebServlet("/deleteProduct")
 public class DeleteProductServlet extends HttpServlet {
 
-    private final ProductService productService = new ProductService();
+    private final ProductServiceDB productServiceDB = ProductServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -24,7 +24,7 @@ public class DeleteProductServlet extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
         String login = request.getParameter("login");
-        if (productService.deleteProduct(id)) {
+        if (productServiceDB.deleteProduct(id)) {
             response.setContentType("text/html");
             PrintWriter writer = response.getWriter();
             writer.println("<html><body>");

@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 @WebServlet("/renameProduct")
 public class RenameProductServlet extends HttpServlet {
 
-    private final ProductService productService = new ProductService();
+    private final ProductServiceDB productServiceDB = ProductServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -26,8 +26,8 @@ public class RenameProductServlet extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String login = request.getParameter("login");
-        ProductDto productDto = new ProductDto(name,description);
-        productService.renameProduct(id,productDto);
+        ProductDto productDto = new ProductDto(id,name,description);
+        productServiceDB.renameProduct(productDto);
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println("<html><body>");
@@ -36,5 +36,4 @@ public class RenameProductServlet extends HttpServlet {
         writer.println("</body></html>");
         writer.close();
     }
-
 }

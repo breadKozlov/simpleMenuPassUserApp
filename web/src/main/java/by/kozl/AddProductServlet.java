@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 @WebServlet("/addProduct")
 public class AddProductServlet extends HttpServlet {
 
-    private final ProductService productService = new ProductService();
+    private final ProductServiceDB productServiceDB = ProductServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -27,7 +27,7 @@ public class AddProductServlet extends HttpServlet {
         String description = request.getParameter("description");
         String login = request.getParameter("login");
         ProductDto productDto = new ProductDto(name,description);
-        productService.addProduct(productDto);
+        productServiceDB.addProduct(productDto);
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println("<html><body>");

@@ -14,7 +14,7 @@ import java.util.Optional;
 @WebServlet("/products")
 public class AllProductsServlet extends HttpServlet {
 
-    private final ProductService productService = new ProductService();
+    private final ProductServiceDB productServiceDB = ProductServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -25,7 +25,7 @@ public class AllProductsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        List<Optional<ProductDto>> products = productService.getAllProducts();
+        List<Optional<ProductDto>> products = productServiceDB.getAllProducts();
         String login = request.getParameter("login");
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();

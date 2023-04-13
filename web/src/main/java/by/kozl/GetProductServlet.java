@@ -12,7 +12,8 @@ import java.util.Optional;
 
 @WebServlet("/getProduct")
 public class GetProductServlet extends HttpServlet {
-    private final ProductService productService = new ProductService();
+
+    private final ProductServiceDB productServiceDB = ProductServiceDB.getInstance();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -24,7 +25,7 @@ public class GetProductServlet extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
         String login = request.getParameter("login");
-        Optional<ProductDto> product = productService.getProduct(id);
+        Optional<ProductDto> product = productServiceDB.getProduct(id);
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         if (product.isPresent()) {

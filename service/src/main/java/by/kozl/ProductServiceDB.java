@@ -1,6 +1,7 @@
 package by.kozl;
 
 import by.kozl.dao.ProductDao;
+import by.kozl.dao.ProductDaoDB;
 import by.kozl.entity.Product;
 
 import java.util.ArrayList;
@@ -9,31 +10,45 @@ import java.util.Optional;
 
 public class ProductServiceDB {
 
+    private static final ProductServiceDB INSTANCE = new ProductServiceDB();
+
     private final ProductDao productDao = new ProductDao();
+    private static final ProductDaoDB productDaoDB = ProductDaoDB.getInstance();
+
     public Optional<ProductDto> getProduct(int id) {
-        return productDao.findById(id).map(it -> new ProductDto(it.getName(),it.getDescription()));
+        return productDaoDB.findById(id).map(it -> new ProductDto(it.getName(),it.getDescription()));
     }
 
     public List<Optional<ProductDto>> getAllProducts() {
 
-        List<Optional<Product>> listProducts = productDao.getAllUsers();
+        List<Optional<Product>> listProducts = productDaoDB.findAll()
+                .stream().map(Optional::ofNullable).toList();
         List<Optional<ProductDto>> listProductsDto = new ArrayList<>();
 
         for(Optional<Product> product: listProducts) {
-
             listProductsDto.add(product.map(it -> new ProductDto(it.getId(),it.getName(), it.getDescription())));
         }
         return listProductsDto;
     }
 
     public boolean deleteProduct(int id) {
-        return productDao.deleteProduct(id);
+
+        return productDaoDB.delete(id);
     }
 
     public void addProduct(ProductDto productDto) {
-        productDao.createProduct(new Product(productDto.getName(),productDto.getDescription()));
+        productDaoDB.save(new Product(productDto.getName(),productDto.getDescription()));
     }
-    public void renameProduct(int id, ProductDto productDto) {
-        productDao.renameProduct(id,new Product(productDto.getName(),productDto.getDescription()));
+    public void renameProduct(ProductDto productDto) {
+        productDaoDB.update(new Product(productDto.getId(),productDto.getName(),productDto.getDescription()));
     }
+
+    private ProductServiceDB() {
+    }
+
+    public static ProductServiceDB getInstance() {
+        return INSTANCE;
+    }
+
+
 }
