@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e209f61-d2bb-4c05-a7cf-d580fdb75814" name="Changes" comment="Add dao and database">
+    <list default="true" id="8e209f61-d2bb-4c05-a7cf-d580fdb75814" name="Changes" comment="Add dao and database,delete json and some classes">
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main/webapp/Exceptions.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/src/main/java/by/kozl/JDBCRunner.java" beforeDir="false" />
@@ -178,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681405832404</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add dao and database,delete json and some classes">
+      <created>1681415320585</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681415320585</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +205,7 @@
     <MESSAGE value="Add change data user" />
     <MESSAGE value="Workable web app user product password" />
     <MESSAGE value="Add dao and database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dao and database" />
+    <MESSAGE value="Add dao and database,delete json and some classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add dao and database,delete json and some classes" />
   </component>
 </project>
